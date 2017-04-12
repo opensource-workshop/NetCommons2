@@ -18,7 +18,7 @@ define('INSTALL_INC_DIR', transPathSeparator(dirname(__FILE__)));
 // ----------------------------
 // ベースのURL値
 // ----------------------------
-define('BASE_URL', 'http://');
+define('BASE_URL', 'http://localhost');
 // -------------------------------------------------
 // ベースのURL値(ソースがあるCoreのNetCommonsのURL)
 // 基本：BASE_URLと同じ
