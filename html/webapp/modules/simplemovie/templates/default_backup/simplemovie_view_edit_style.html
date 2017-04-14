@@ -1,0 +1,60 @@
+<{* 表示方法変更画面 *}>
+
+<form id="simplemovieForm<{$id}>" name="simplemovieForm<{$id}>" method="post" onsubmit="return false;">
+	<input name="action" type="hidden" value="simplemovie_action_edit_style" />
+
+<table>
+	<tr>
+		<td style="padding-right:2.0em;">標準の幅</td>
+		<td><input type="text" name="default_width" id="default_width" size="6" value="<{$action.block_record.width}>"> px</td>
+	</tr>
+	<tr>
+	<td style="padding-right:2.0em;">標準の高さ</td>
+	<td><input type="text" name="default_height" id="default_height" size="6" value="<{$action.block_record.height}>"> px</td>
+	</tr>
+	<tr><td></td><td></td></tr>
+<{* 2.4.2.5 ⇒ 2.4.2.6 変更 start
+	<tr>
+		<td style="padding-right:2.0em;">自動再生</td>
+		<td>
+			<input type="radio" name="autoplay_flag" value="1" <{if $action.block_record.autoplay_flag==1}>checked<{/if}>>する
+			<input type="radio" name="autoplay_flag" value="0" <{if $action.block_record.autoplay_flag==0}>checked<{/if}>>しない(初期値)
+		</td>
+	</tr>
+	<tr>
+		<td style="padding-right:2.0em;">埋め込みタグ表示</td>
+		<td>
+			<input type="radio" name="embed_show_flag" value="1" <{if $action.block_record.embed_show_flag==1}>checked<{/if}>>する
+			<input type="radio" name="embed_show_flag" value="0" <{if $action.block_record.embed_show_flag==0}>checked<{/if}>>しない(初期値)
+		</td>
+	</tr>
+*}>
+	<tr>
+		<td style="padding-right:2.0em; padding-top: 10px; vertical-align:top;">自動再生</td>
+		<td style="padding-top: 10px">
+			<table>
+				<tr><td><input type="radio" name="autoplay_flag" value="1" <{if $action.block_record.autoplay_flag==1}>checked<{/if}>>する</td></tr>
+				<tr><td><input type="radio" name="autoplay_flag" value="0" <{if $action.block_record.autoplay_flag==0}>checked<{/if}>>しない(初期値)</td></tr>
+			</table>
+		</td>
+	</tr>
+	<tr>
+		<td style="padding-right:2.0em; padding-top: 10px; vertical-align:top;">埋め込みタグ表示</td>
+		<td style="padding-top: 10px">
+			<table>
+				<tr><td><input type="radio" name="embed_show_flag" value="2" <{if !($action.block_record) || $action.block_record.embed_show_flag==2}>checked<{/if}>>主担以上の人に表示する(初期値)</td></tr>
+				<tr><td><input type="radio" name="embed_show_flag" value="1" <{if $action.block_record && $action.block_record.embed_show_flag==1}>checked<{/if}>>全ての人に表示する</td></tr>
+				<tr><td><input type="radio" name="embed_show_flag" value="0" <{if $action.block_record && $action.block_record.embed_show_flag==0}>checked<{/if}>>表示しない</td></tr>
+			</table>
+<{* 2.4.2.5 ⇒ 2.4.2.6 変更 end *}>
+
+		</td>
+	</tr>
+</table>
+	<div class="btn-bottom">
+		<input class="lined_btn btn-width" name="regist" type="button" onclick="simplemovieCls['<{$id}>'].setStyle(this.form); return false;" value="<{$lang._regist|smarty:nodefaults}>">
+	</div>
+
+</form>
+
+<{include file="simplemovie_script.html"}>

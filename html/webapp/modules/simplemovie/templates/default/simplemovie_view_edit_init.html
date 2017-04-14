@@ -1,0 +1,52 @@
+<{* 動画ファイルの指定 *}>
+
+<div style="margin-top: 5px;">
+
+<form id="simplemovieForm<{$id}>" class="outerdiv" action="#" target="attachment_form<{$id}>" enctype="multipart/form-data" onsubmit="return false;">
+
+	<fieldset>
+		<legend style="margin-bottom: 10px;">動画ファイル<{if $action.movie_require_flag}><span style="color: red;">*</span><{/if}></legend>
+		<span style="color: blue;">設定されているアップロード最大サイズ：<{$action.simplemovie_upload_max_size_mb}>MB</span><br />
+		<input type="file" name="attachment[movie]" <{if $action.change_execute_button_show}>style="margin:10px 0px 0px 0px;"<{/if}>>
+		<{if $action.block_record.movie_upload_id}>
+			<label style="margin: 3px 0 8px; 0;">
+				<input type="checkbox" name="movie_delete" value="1"> 動画の削除
+			</label>
+			(<a class="link" href="javascript:void(0);" onClick="simplemovieCls['<{$id}>'].movieDownload( '<{$id}>', '<{$action.block_record.movie_upload_id}>' );">
+				<{$action.block_record.movie_file_name}>
+			</a>)
+			<br />
+		<{/if}>
+		<{if $action.change_execute_button_show}>
+			<table style="margin-left:15px;">
+				<tr>
+					<td style="padding-right:2.0em;">※動画ファイルの変換処理</td>
+					<td>
+						<input type="radio" name="change_execute_flag" value="1" checked >実施する(初期値)
+						<input type="radio" name="change_execute_flag" value="0" >実施しない
+					</td>
+				</tr>
+			</table>
+			<span style="margin-left:15px; color: blue;">mp4以外のファイルを指定する場合は、変換処理を実施する必要があります。</span>
+		<{/if}>
+	</fieldset>
+
+	<fieldset>
+		<legend style="margin-bottom: 10px;">サムネイル画像<{if $action.thumbnail_require_flag}><span style="color: red;">*</span><{/if}></legend>
+		<input type="file" name="attachment[thumbnail]">
+		<{if $action.block_record.thumbnail_upload_id}>
+			<label style="margin: 3px 0 8px; 0;"><input type="checkbox" name="thumbnail_delete" value="1"> サムネイルの削除</label>(<{$action.block_record.thumbnail_file_name}>)<br />
+		<{/if}>
+	</fieldset>
+
+	<div class="btn-bottom">
+			<input class="btn-width"
+					type="button"
+					value="<{$lang._regist}>"
+					onclick="simplemovieCls['<{$id}>'].uploadEditForm(event, this.form);" />
+	</div>
+</form>
+
+</div>
+
+<{include file="simplemovie_script.html"}>
