@@ -1,0 +1,41 @@
+/* Css定義ファイル                     */
+
+/* 使い方画面
+-------------------------------------------------*/
+.simplemovie_copyright {
+	text-align: right;
+	color: #a3a3a3;
+	font-size: 90%;
+	font-weight: bold;
+	vertical-align: middle;
+}
+.simplemovie_caution {
+	color: #ff0000;
+}
+.simplemovie_help {
+	margin: 10px;
+}
+.simplemovie_help fieldset {
+	padding: 10px;
+}
+.simplemovie_help_block {
+	margin: 0px 0px 5px 30px;
+}
+.simplemovie_help_block_sub {
+	margin: 0px 0px 5px 30px;
+}
+.simplemovie_help_tab {
+	text-decoration: underline;
+}
+
+/* 埋め込みタグ表示用テキストエリア
+-------------------------------------------------*/
+textarea.simplemovie_embed_code {
+	background:#E8E8E8 none repeat scroll 0 0;
+	border-bottom:1px solid #000000;
+	border-top:2px solid #000000;
+	margin:15px 0;
+	overflow:scroll;
+    width:498px;
+	height:100px;
+}

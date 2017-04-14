@@ -1,0 +1,82 @@
+<{* 使い方の説明 *}>
+
+<div class="simplemovie_help">
+<fieldset>
+
+このモジュールは動画の再生用です。<br />
+<hr>
+<span class="simplemovie_help_tab">編集タブ</span><br />
+<br />
+【動画ファイル】
+	<blockquote class="simplemovie_help_block">
+	<{if $action.change_execute_button_show}>
+	動画ファイルをアップロードしてください。<br />
+	●動画ファイルの変換処理を実施する場合<br />
+		<blockquote class="simplemovie_help_block_sub">
+		使用可能な動画ファイルの拡張子：mp4, mpeg, avi, mov, wmv,flv, mpg<br />
+		アップロード時に、動画ファイルをH.264 コーデックのmp4ファイルに変換します。<br />
+		「ffmpeg」「MP4BOX」ツールがインストールされている必要があります。
+		</blockquote>
+	●動画ファイルの変換処理を実施しない場合<br />
+		<blockquote class="simplemovie_help_block_sub">
+		使用可能な動画ファイル：H.264 コーデックのmp4
+		</blockquote>
+	<{else}>
+	H.264 コーデックのmp4 ファイルをアップロードしてください。<br />
+	動画の形式変換を行う場合は、NetCommons2 のアドオンモジュールである動画モジュールを使用してください。
+	<{/if}>
+	</blockquote>
+
+【サムネイル画像】
+	<blockquote class="simplemovie_help_block">
+	動画のサムネイル画像を指定してください。<br />
+	使用可能な画像ファイルの拡張子：jpg, png, gif<br />
+	<{if $action.change_execute_button_show}>
+	●動画ファイルの変換処理を実施する場合<br />
+		<blockquote class="simplemovie_help_block_sub">
+		指定しなかった場合、動画の1秒目がサムネイル画像として作成されます。
+		</blockquote>
+	●動画ファイルの変換処理を実施しない場合<br />
+		<blockquote class="simplemovie_help_block_sub">
+		必須指定です。
+		</blockquote>
+	<{else}>
+	必須指定です。
+	<{/if}>
+	</blockquote>
+<br />
+<hr>
+<span class="simplemovie_help_tab">表示方法変更タブ</span><br />
+<br />
+【標準の幅】
+	<blockquote class="simplemovie_help_block">
+	動画を再生する際の標準の幅を指定します。<br />
+	スマートフォンなどのデバイスで再生する際、画面がこの幅より小さい場合は、自動的に縮小して再生されます。
+	</blockquote>
+
+【標準の高さ】
+	<blockquote class="simplemovie_help_block">
+	動画を再生する際の標準の高さを指定します。<br />
+	スマートフォンなどのデバイスで再生する際、画面がこの高さより小さい場合は、自動的に縮小して再生されます。
+	</blockquote>
+
+【自動再生】
+	<blockquote class="simplemovie_help_block">
+	チェックすると、画面を開いたとき、自動的に動画の再生が始まります。
+	</blockquote>
+
+【埋め込みタグ表示】
+	<blockquote class="simplemovie_help_block">
+	チェックすると、動画の埋め込みタグが表示できるようになります。
+	</blockquote>
+<hr>
+<div>【ライセンスについて】</div>
+	<blockquote class="simplemovie_help_block">
+	この「スライダー」モジュールは株式会社オープンソース・ワークショップが提供するモジュールです。<br />
+	「スライダー」モジュールのライセンスはNetCommons2 と同じFreeBSD ライセンスです。<br />
+	</blockquote>
+
+<div class="simplemovie_copyright">Powered by <a href="http://opensource-workshop.jp/" target="_blank">OpenSource-WorkShop.jp</a>
+
+</fieldset>
+</div>

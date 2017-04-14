@@ -1,0 +1,61 @@
+<{* 動画再生 *}>
+
+<script class="nc_script" type="text/javascript">
+jqcheckCls.jqload("jquery-1.6.4.min", "window.jQuery",
+	function() {
+		jQuery('#simplemovie_video<{$id}>').bind('contextmenu',function(e){
+			return false;
+		});
+	}
+);
+</script>
+
+<{if $action.block_record.movie_upload_id}>
+
+	<table style="width: 100%; display: table; table-layout: fixed;">
+	<tr>
+		<td>
+			<{if $smarty.server.HTTP_USER_AGENT|stristr:"Trident" && $smarty.server.HTTP_USER_AGENT|stristr:"6.1" && $smarty.server.HTTP_USER_AGENT|stristr:"Windows"}>
+				<{* VIDEOタグが再生できない場合 *}>
+				動画を再生する場合は、下記画面をクリックすると、動画再生ウィンドウが開きます。<br />
+				※ 動画再生まで時間がかかる場合があります。<br />
+				<a href="<{$smarty.const.BASE_URL_HTTP}>?action=simplemovie_view_main_play&play_block_id=<{$action.block_id}>" target="_blank">
+					<img id="simplemovie_thumbnail<{$id}>" src="<{$smarty.const.BASE_URL}>?action=simplemovie_view_main_thumbnail&amp;upload_id=<{$action.block_record.thumbnail_upload_id}>" style="max-width: 600px; height: auto;" <{if $action.block_record.width}> width="<{$action.block_record.width}>"<{/if}><{if $action.block_record.height}> height="<{$action.block_record.height}>"<{/if}>>
+				</a>
+			<{else}>
+				<{* VIDEOタグで再生できる場合 *}>
+				<video id="simplemovie_video<{$id}>" controls preload="none" style="max-width: 100%; height: auto;" <{if $action.block_record.autoplay_flag==1}>autoplay<{/if}> <{if $action.block_record.thumbnail_upload_id}> poster="<{$smarty.const.BASE_URL}>?action=simplemovie_view_main_thumbnail&amp;upload_id=<{$action.block_record.thumbnail_upload_id}>"<{/if}><{if $action.block_record.width}> width="<{$action.block_record.width}>"<{/if}><{if $action.block_record.height}> height="<{$action.block_record.height}>"<{/if}> >
+					<source src="<{$smarty.const.BASE_URL}>?action=simplemovie_view_main_play&play_block_id=<{$action.block_id}>&upload_id=<{$action.block_record.movie_upload_id}>" type="video/mp4" />
+				</video>
+			<{/if}>
+		</td>
+	</tr>
+	<{if $action.embed_code}>
+		<tr>
+			<td>
+				<a class="syslink" onclick="commonCls.displayChange($('simplemovie_embed<{$id}>'));simplemovieCls['<{$id}>'].createIFrameValue('<{$action.embed_code}>');return false;" title="埋め込みタグ" href="#">埋め込みタグ</a>
+				<div id="simplemovie_embed<{$id}>" class="display-none">
+					<textarea id="simplemovie_embed_code<{$id}>" readonly="readonly" onclick="this.focus();this.select();" name="embed_code" class="simplemovie_embed_code"><{$action.embed_code}></textarea>
+				</div>
+			</td>
+		</tr>
+	<{/if}>
+
+		<{* 承認機能 *}>
+		<{if ($smarty.session._user_auth_id >= _AUTH_CHIEF && $action.block_record.agree_flag == '2') }>
+			<tr>
+				<td>
+					<span class="deadline">【未承認】</span>
+					<{if $smarty.session._user_auth_id == _AUTH_ADMIN}>
+						<a href="#" onClick="simplemovieCls['<{$id}>'].agreeSimpleClick(1); return false;">［承認する］</a>
+					<{/if}>
+				</td>
+			</tr>
+		<{/if}>
+	</table>
+
+<{else}>
+        動画ファイルがアップロードされていません。
+<{/if}>
+
+<{include file="simplemovie_script.html"}>
