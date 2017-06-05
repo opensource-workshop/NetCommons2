@@ -147,13 +147,13 @@ table#header_menu td.menu_right {
  NC2 レスポンシブ対応CSS - スマートフォン
 ----------------------------------------------------*/
 
-/* max-width:480px
+/* max-width:600px
 ---------------------------------------*/
-@media only screen and (max-width:480px) {
+@media only screen and (max-width:600px) {
 
 	/* 横のブロックを縦に並べなおす
 	---------------------------------------*/
-	.module_grouping_box .column {
+	.module_grouping_box td {
 
 		/* background-color:red; */
 
@@ -192,6 +192,7 @@ table#header_menu td.menu_right {
 
 	/* 右カラムは下に持っていく
 	---------------------------------------*/
+/*
 	#_rightcolumn { display:table-row-group; }
 	#_rightcolumn .menu_view_main_init {
 		padding: 4px !important;
@@ -200,7 +201,7 @@ table#header_menu td.menu_right {
 		width: 100% !important;
 	}
 	#_centercolumn { display:table-header-group; }
-
+*/
 	/* 全体の幅を100%
 	---------------------------------------*/
 	#_container { width: 100%; }
@@ -293,8 +294,21 @@ table#header_menu td.menu_right {
 	---------------------------------------*/
 	#_leftcolumn { display:none; }
 
+	/* 左カラムは消さずに下に持って行く場合
+	---------------------------------------*/
+/*
+	#_leftcolumn { display: table-row-group; }
+	#_leftcolumn .menu_view_main_init {
+		padding: 4px !important;
+	}
+	#_leftcolumn .menu_view_main_init .module_box {
+		width: 100% !important;
+	}
+	#_centercolumn { display: table-header-group; }
+*/
 	/* 右カラムは下に持っていく
 	---------------------------------------*/
+/*
 	#_rightcolumn { display:table-row-group; }
 	#_rightcolumn .menu_view_main_init {
 		padding: 4px !important;
@@ -303,7 +317,7 @@ table#header_menu td.menu_right {
 		width: 100% !important;
 	}
 	#_centercolumn { display:table-header-group; }
-
+*/
 	/* 全体の幅を100%
 	---------------------------------------*/
 	#_container { width: 100%; }
@@ -357,5 +371,19 @@ table#header_menu td.menu_right {
 	.responsive_area iframe {
 		max-width: 100%;
 	}
-}
+
+	/* レポートモジュール タブレット表示対応 */
+	/*ブロック 横広がり対応 */
+	table.assignment_main_view, table.assignment_reporter_view {
+		table-layout: fixed;
+		white-space: normal;
+	}
+	/*コメント欄のレイアウト調整 */
+	div.assignment_comment_view, div.assignment_comment_write, div.assignment_comment_write {
+		padding: 0;
+	}
+	/*レポート状況のレイアウト調整*/
+	td.assignment_main_state {
+		width: 120px;
+	}
 
