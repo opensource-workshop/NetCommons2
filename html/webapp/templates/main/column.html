@@ -7,7 +7,9 @@
 		<td class="column valign-top">
 			<{if $column}>
 			<{foreach from=$column key=j item=value}>
-				<div class="cell" style="<{$style.$i.$j}>">
+				<{* レスポンシブ化の追加処理。モジュール初期アクションをテンプレートへ。キャビネットなどの場合、overflow 設定するため。 add by nagahara@opensource-workshop.jp *}>
+				<div class="cell <{$action_names.$i.$j}><{if $responsive_block.$i.$j}> responsive_block<{/if}>" style="<{$style.$i.$j}>">
+				<{* <div class="cell" style="<{$style.$i.$j}>"> *}>
 					<{$column.$j|smarty:nodefaults}>
 				</div>
 			<{/foreach}>

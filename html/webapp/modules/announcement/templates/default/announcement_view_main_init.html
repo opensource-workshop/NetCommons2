@@ -1,7 +1,8 @@
 <{if $smarty.session._auth_id >=_AUTH_CHIEF}>
-<div class="widthmax"  title="<{$smarty.const._DBLCLICK_EDIT}>" ondblclick="announcementCls['<{$id}>'].announcementEditShow();" onmouseover="if(typeof(commonCls) != 'undefined') {commonCls.blockNotice(event, this);}">
+<{* --- レスポンシブ対応 by nagahara@opensource-workshop.jp *}>
+<div class="widthmax responsive_area"  title="<{$smarty.const._DBLCLICK_EDIT}>" ondblclick="announcementCls['<{$id}>'].announcementEditShow();" onmouseover="if(typeof(commonCls) != 'undefined') {commonCls.blockNotice(event, this);}">
 <{else}>
-<div class="widthmax">
+<div class="widthmax responsive_area">
 <{/if}>
 	<{$action.announcement_obj.content|smarty:nodefaults|wysiwig_convert_url}>
 	<div class="float-clear-div">&nbsp;</div>

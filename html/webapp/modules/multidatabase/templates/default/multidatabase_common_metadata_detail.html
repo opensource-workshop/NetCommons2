@@ -34,13 +34,18 @@
 		<td class="mdb_edit_detail">
 	<{/if}>
 		<{if $mode == "preview" }>
+<{* --- レスポンシブ対応 by nagahara@opensource-workshop.jp *}>
+<div class="responsive_area">
 			<{* preview用 *}>
 			<{if $metadata.type == MULTIDATABASE_META_TYPE_IMAGE}>
 				<img src="<{""|get_image_url}><{$smarty.const.MULTIDATABASE_SAMPLE_IMAGE}>" class="mdb_metadata_image" alt="NO IMAGE" />
 			<{else}>
 				<{$content}>
 			<{/if}>
+</div>
 		<{elseif $mode == "list" || $mode == "detail"}>
+<{* --- レスポンシブ対応 by nagahara@opensource-workshop.jp *}>
+<div class="responsive_area">
 			<{* 一覧用 *}>
 			<{if $metadata.type == MULTIDATABASE_META_TYPE_FILE}>
 				<{if $content == ""}>
@@ -107,7 +112,11 @@
 			<{else}>
 				<{$content}>
 			<{/if}>
+</div>
 		<{elseif $mode == "regist"}>
+
+<{* --- レスポンシブ対応 by nagahara@opensource-workshop.jp *}>
+<div class="responsive_area_img">
 			<{if $metadata.type == MULTIDATABASE_META_TYPE_TEXT || $metadata.type == MULTIDATABASE_META_TYPE_MAIL}>
 				<{* テキスト *}>
 				<input name="datas[<{$metadata.metadata_id}>]" id="mdb_metadatas_<{$metadata.metadata_id}><{$id}>" type="text" style="width:<{$smarty.const.MULTIDATABASE_INPUT_TEXTBOX_DEFAULT_SIZE}>px;" value="<{$content}>"/>
@@ -183,6 +192,7 @@
 				<{/if}>
 			<{/if}>
 		<{/if}>
+</div>
 	</td>
 </tr>
 <{/strip}>

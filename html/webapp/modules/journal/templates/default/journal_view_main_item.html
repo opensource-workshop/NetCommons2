@@ -57,9 +57,11 @@
 	</tr>
 </table>
 <{if $action.journal_obj.active_flag == $smarty.const._ON && $item.has_edit_auth}>
-<div class="journal_content" title="<{$smarty.const._DBLCLICK_EDIT}>" ondblclick="journalCls['<{$id}>'].showEditPost(this, '<{$item.post_id}>');" onmouseover="commonCls.blockNotice(event, this);">
+<{* --- レスポンシブ対応 by nagahara@opensource-workshop.jp *}>
+<div class="journal_content responsive_area" title="<{$smarty.const._DBLCLICK_EDIT}>" ondblclick="journalCls['<{$id}>'].showEditPost(this, '<{$item.post_id}>');" onmouseover="commonCls.blockNotice(event, this);">
 <{else}>
-<div class="journal_content">
+<{* --- レスポンシブ対応 by nagahara@opensource-workshop.jp *}>
+<div class="journal_content responsive_area">
 <{/if}>
 	<{$item.content|smarty:nodefaults|wysiwig_convert_url}>
 	<br class="float-clear" />

@@ -146,10 +146,28 @@ class Pages_Components_Compmain {
 							$set_columns[$col_num][$row_num] = $this->_setBlockHeader($column_html,$block['block_id'],$block['full_path'],$theme_name, $table_min_width_size);
 						//}
 					} else {
+//print_r($block);
 						$set_columns[$col_num][$row_num] = $html[$block['block_id']];
 					}
 
 					$set_style[$col_num][$row_num] = "padding:".$block['topmargin']."px ".$block['rightmargin']."px ".$block['bottommargin']."px ".$block['leftmargin']."px;";
+
+					// レスポンシブ化の追加処理。モジュール初期アクションをテンプレートへ。(2016/02/06 現在使用していないが、今後の拡張のため) add by nagahara@opensource-workshop.jp
+					$action_names[$col_num][$row_num] = $block["action_name"];
+
+					// レスポンシブ化の追加処理。レスポンシブ対応モジュールを判定。overflow 設定するため。 add by nagahara@opensource-workshop.jp
+					$responsive_block[$col_num][$row_num] = false;
+					if ( strpos( $block["action_name"], "calendar_" ) === 0 || 
+					     strpos( $block["action_name"], "cabinet_" ) === 0 || 
+					     strpos( $block["action_name"], "assignment_" ) === 0 || 
+					     strpos( $block["action_name"], "bbs_" ) === 0 || 
+					     strpos( $block["action_name"], "circular_" ) === 0 || 
+					     strpos( $block["action_name"], "reservation_" ) === 0 ||
+					     strpos( $block["action_name"], "questionnaire_" ) === 0 ||
+					     strpos( $block["action_name"], "quiz_" ) === 0 ) {
+					    $responsive_block[$col_num][$row_num] = true;
+					}
+
 				}
 			}
 			if(!$grouptop_flag) {
@@ -158,6 +176,11 @@ class Pages_Components_Compmain {
 
 				$this->_renderer->assign('columns',$set_columns);
 				$this->_renderer->assign('style',$set_style);
+
+				// レスポンシブ化の追加処理。モジュール初期アクションをテンプレートへ。キャビネットなどの場合、overflow 設定するため。 add by nagahara@opensource-workshop.jp
+				$this->_renderer->assign('action_names',$action_names);
+				$this->_renderer->assign('responsive_block',$responsive_block);
+
 				$result = $this->_renderer->fetch($template,"column_".$display_position."_".$parent_id."_".$thread_num,"/templates/main/");
 			} else {
 				$result = $set_columns[$col_num][$row_num];

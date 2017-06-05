@@ -71,6 +71,10 @@ class MobileCheck
 	 * @access public
 	 */
 	function isSmartPhone() {
+
+		// スマートフォンはPC 画面へ
+		return false;
+
 		$userAgent = @$_SERVER['HTTP_USER_AGENT'];
 		$userAgent = strtolower($userAgent);
 

@@ -637,7 +637,11 @@ class Multidatabase_Components_View
 					}
 					$value = "<a target='_blank' href='" . htmlspecialchars($extent_url.$url."&metadata_id=".$metadata['metadata_id']."&download_flag="._ON, ENT_QUOTES) . $w . "&amp;" . session_name() . "=" . session_id() . "'" . ' data-ajax="false"  data-rel="dialog" ' . "><img src='". htmlspecialchars($extent_url.$url."&metadata_id=".$metadata['metadata_id']."&download_flag="._ON, ENT_QUOTES) . "&amp;w=" . MULTIDATABASE_IMAGE_DEF_MOBILE_LIST_WIDTH . "&amp;" . session_name() . "=" . session_id() . "' title='".$file_name."' alt='".$file_name."' /></a>";
 				} else{
+/*
 					$value = "<a href='#' onclick=\"commonCls.showPopupImageFullScale(this); return false;\"><img src='".htmlspecialchars($extent_url.$url."&metadata_id=".$metadata['metadata_id']."&download_flag="._ON, ENT_QUOTES)."' title='".$file_name."' alt='".$file_name."' style='height:".$size[1]."px;width:".$size[0]."px;padding:10px;' /></a>";
+*/
+					// レスポンシブ・デザイン対応のため、style での幅、高さの指定を取る。リンクも不要なため削除 by nagahara@opensource-workshop.jp
+					$value = "<img src='".htmlspecialchars($extent_url.$url."&metadata_id=".$metadata['metadata_id']."&download_flag="._ON, ENT_QUOTES)."' title='".$file_name."' alt='".$file_name."' />";
 				}
 			}else if($metadata['type'] == MULTIDATABASE_META_TYPE_FILE) {
 				$session =& $this->_container->getComponent("Session");
