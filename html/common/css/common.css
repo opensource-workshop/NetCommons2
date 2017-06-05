@@ -1,0 +1,36 @@
+@charset "utf-8";
+
+/**
+ * NetCommons2 レスポンシブ対応
+ *
+ * @package     jp.opensource-workshop
+ * @author      nagahara@opensource-workshop.jp
+ * @copyright   2015 opensource-workshop.jp
+ * @license     http://www.netcommons.org/license.txt  NetCommons License
+ * @project     Opensource-workshop NetCommons2 add-on module project
+ * @access      public
+ * @version     2.4.2.1-1
+ */
+
+/* 背景
+----------------------------------------------*/
+/*
+body {
+	background-color: #ffffff;
+}
+*/
+
+/* bxSlider
+----------------------------------------------*/
+
+@media screen and (max-width:1000px) {
+
+	.slide_simple {
+		max-width: 100%;
+	}
+
+	.bxSlider li img {
+	}
+}
+
+

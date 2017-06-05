@@ -1,0 +1,93 @@
+@charset "utf-8";
+
+/**
+ * NetCommons2 レスポンシブ対応
+ *
+ * @package     jp.opensource-workshop
+ * @author      nagahara@opensource-workshop.jp
+ * @copyright   2015 opensource-workshop.jp
+ * @license     http://www.netcommons.org/license.txt  NetCommons License
+ * @project     Opensource-workshop NetCommons2 add-on module project
+ * @access      public
+ * @version     2.4.2.1-1
+ */
+
+/* max-width:480px
+---------------------------------------*/
+@media only screen and (max-width:480px) {
+
+	/* 横のブロックを縦に並べなおす(モジュール)
+	---------------------------------------*/
+	.responsive_table td, .journal_head_table td {
+
+		/*width: 100%;*/
+		border-top: none;
+		border-right: none;
+		border-left: none;
+		display: block;
+
+		/* 以下はie9対応(WYSIWYG 問題があるので、IE9 互換表示させているため)
+		---------------------------------------*/
+		float:left;
+		clear:both;
+	}
+
+	/* 汎用データベースのコンテンツを登録 | 表示順序 を改行OK に。
+	---------------------------------------*/
+	.mdb_right_space {
+		white-space: normal;
+	}
+
+	.menu_right {
+		padding-right: auto !important;
+	}
+}
+
+/* Overflow 対応のモジュール
+----------------------------------------------*/
+
+@media screen and (max-width:1000px) {
+
+	.responsive_block {
+		display: block;
+		max-width: 100%;
+		overflow-x: auto;
+		padding: 0 !important;
+		margin: 4px;
+		white-space: nowrap;
+		-webkit-overflow-scrolling: touch;
+		border: 1px solid #c8c8c8;
+	}
+
+	.responsive_block .th_classic_default {
+		border: none;
+	}
+	.responsive_block .th_classic_default_header {
+		border-top: none;
+		border-right: none;
+		border-left: none;
+	}
+
+	.responsive_block::-webkit-scrollbar {
+		width: 12px;
+		background: #b2a3a0;
+	}
+	.responsive_block::-webkit-scrollbar:horizontal {
+		height: 12px;
+		background: #b2a3a0;
+	}
+	.responsive_block::-webkit-scrollbar-thumb {
+		background: #bc3029;
+		border-radius: 8px;
+	}
+	.responsive_block::-webkit-scrollbar-thumb:horizontal {
+		background: #bc3029;
+		border-radius: 8px;
+	}
+
+	/* モジュール枠のtable をfixed にしておかないと、overflow-x を定義しても、テーブルが大きくなってしまうため。 */
+	.module_box {
+		table-layout: fixed;
+	}
+}
+

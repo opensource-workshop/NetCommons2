@@ -1,0 +1,361 @@
+@charset "utf-8";
+
+/**
+ * NetCommons2 レスポンシブ対応
+ *
+ * @package     jp.opensource-workshop
+ * @author      nagahara@opensource-workshop.jp
+ * @copyright   2015 opensource-workshop.jp
+ * @license     http://www.netcommons.org/license.txt  NetCommons License
+ * @project     Opensource-workshop NetCommons2 add-on module project
+ * @access      public
+ * @version     2.4.2.1-1
+ */
+
+/*----------------------------------------------------
+ NC2 レスポンシブ対応CSS - PC
+----------------------------------------------------*/
+
+#_container {
+	width: 1000px;
+}
+
+.container {
+	margin: 0 auto;
+}
+
+/*
+#_container { max-width: 1000px; }
+/*
+
+/* グループ化したものを中央寄せ
+----------------------------------------------*/
+/*
+.module_grouping_box {
+	width: auto !important;
+}
+*/
+
+/* 中央カラムグループ幅 modules/page/main.html でid 追加(必要な場合)
+----------------------------------------------*/
+/*
+#middle_column {
+	width: 1000px;
+	margin: 0 auto;
+}
+
+.module_box {
+	margin: 0 auto;
+}
+*/
+
+/* PCモードでもスマホモードでも、画像はブラウザの幅に応じて変更
+---------------------------------------*/
+img {
+	float: none;
+	height: auto;
+	max-width: 100%;
+}
+
+div.responsive_area img {
+	height: auto !important;
+}
+
+/* NC 標準のタブがつまる問題があるので、調整
+---------------------------------------*/
+.comptabset_tabset img {
+	max-width: none;
+}
+.comptabset_linespace img {
+	max-width: none;
+}
+
+/* スマホでポップアップの閉じるボタンが小さくなるための対応
+---------------------------------------*/
+.th_system_btn {
+	max-width: none;
+}
+
+/* 画像の自動リサイズ。画像の入る可能性のあるエリア用(お知らせモジュールWYSIWYG)
+---------------------------------------*/
+.responsive_area {
+	width: 100%;
+	display: table;
+	table-layout: fixed;
+}
+
+/* 画像の自動リサイズ。汎用データベースで編集時に画像が大きくなりすぎるのを防ぐ
+---------------------------------------*/
+.responsive_area_img img {
+	width: 100%;
+}
+
+/* カレンダーアイコン。汎用データベースで編集時にカレンダーアイコンが大きくなりすぎるのを防ぐ
+---------------------------------------*/
+.responsive_area_img .comp_calendar_icon img {
+	width: auto;
+}
+
+/* 画像の自動リサイズ。table タグの中に記載された場合
+---------------------------------------*/
+.responsive_area table {
+	width: auto;
+	display: table;
+	table-layout: fixed;
+}
+.responsive_area table img {
+	max-width: 100%;
+}
+
+/* 画像の自動リサイズ。汎用データベースで編集時に画像が大きくなりすぎるのを防ぐ
+---------------------------------------*/
+.responsive_area_img table img {
+	width: 100%;
+}
+
+/* ブロックタイトルを改行アリにする。
+---------------------------------------*/
+.nc_block_title {
+	white-space: normal;
+}
+
+/* IE で3ブロックの横グループ化を表示した際、ブロックが横に長くなるのを防ぐため(IE のバグ？)
+---------------------------------------*/
+.module_grouping_box table {
+	max-width: 1000px;
+}
+
+/* copyright を改行許可
+---------------------------------------*/
+.copyright {
+	word-wrap: break-word;
+}
+
+/* ヘッダーメニュー
+----------------------------------------------*/
+table#header_menu td.menu_right {
+	white-space: normal;
+}
+
+/* メニューの編集モードの対応(on、ごみ箱アイコンが小さくならないように)
+----------------------------------------------*/
+.menu_view_main_init .menu_edit_top_outer img {
+	max-width: none;
+}
+
+/*----------------------------------------------------
+ NC2 レスポンシブ対応CSS - スマートフォン
+----------------------------------------------------*/
+
+/* max-width:480px
+---------------------------------------*/
+@media only screen and (max-width:480px) {
+
+	/* 横のブロックを縦に並べなおす
+	---------------------------------------*/
+	.module_grouping_box .column {
+
+		/* background-color:red; */
+
+		/*width: 100%;*/
+		border-top: none;
+		border-right: none;
+		border-left: none;
+		display: block;
+
+		/* 以下はie9対応(WYSIWYG 問題があるので、IE9 互換表示させているため)
+		---------------------------------------*/
+		float:left;
+		clear:both;
+		width:100%;
+	}
+
+	/* 1カラム時にテーブルのセルを畳んで表示するが、ブロックタイトルはセルを畳まない
+	---------------------------------------*/
+	._block_title_event td {
+		display: table-cell;
+		float: none;
+	}
+
+	/* 1カラム時に小さく左右スクロールバーが出る場合があるので、その制御
+	---------------------------------------*/
+	table#header_menu td.menu_right {
+		padding: 4px 0;
+	}
+
+	/* 以下、スマホのレスポンシブ時点での設定
+	---------------------------------------*/
+
+	/* 左カラムは消す(メニューはボタンナビ)
+	---------------------------------------*/
+	#_leftcolumn { display:none; }
+
+	/* 右カラムは下に持っていく
+	---------------------------------------*/
+	#_rightcolumn { display:table-row-group; }
+	#_rightcolumn .menu_view_main_init {
+		padding: 4px !important;
+	}
+	#_rightcolumn .menu_view_main_init .module_box {
+		width: 100% !important;
+	}
+	#_centercolumn { display:table-header-group; }
+
+	/* 全体の幅を100%
+	---------------------------------------*/
+	#_container { width: 100%; }
+
+	/* 中央カラムの幅を100%
+	---------------------------------------*/
+	.centercolumn { width: 100%; }
+
+	/* テーブルのセルは100% にしなければ、各ブロックが小さくなってしまう
+	---------------------------------------*/
+	/* なくてもイケる？あるとWYSIWYG の画像挿入のタブが大きくなる？ */
+	/* td { width: 100%; } */
+
+	table.outer th {
+		white-space: normal;
+		min-width: 50px;
+	}
+
+	/* WYSIWYG でdiv などを使用していると、文字の折り返しが影響して横スクロールが発生するため
+	---------------------------------------*/
+	.responsive_area {
+		word-break: break-all;
+		overflow-wrap: break-word;
+	}
+
+	/* スマホ時のブロック余白を一律の大きさにする(ただし、メニューのみ、余白なしにする。スマホ用メニュー対応)
+	---------------------------------------*/
+	.cell {
+		padding: 4px !important;
+	}
+	.menu_view_main_init {
+		padding: 0 !important;
+	}
+	.pages_view_grouping {
+		padding: 0 !important;
+	}
+
+	/* スマホ時のスライダーで少し、横スクロールが発生するため。
+	---------------------------------------*/
+	.bx-viewport {
+		width: auto !important;
+	}
+
+	/* スマホ表示時、ヘッダーの下線とスマホメニューの上辺がかぶるために消す
+	---------------------------------------*/
+	#smp_tab_menu_home {
+		border-top: none;
+	}
+
+	/* pre タグ対応
+	---------------------------------------*/
+	pre {
+		/* Mozilla */
+		white-space: -moz-pre-wrap;
+
+		/* Opera 4-6 */
+		white-space: -pre-wrap;
+
+		/* Opera 7 */
+		white-space: -o-pre-wrap;
+
+		/* CSS3 */
+		white-space: pre-wrap;
+
+		/* IE 5.5+ */
+		word-wrap: break-word;
+	}
+}
+
+/*----------------------------------------------------
+ NC2 レスポンシブ対応CSS - タブレット
+----------------------------------------------------*/
+
+/* tablet
+---------------------------------------*/
+@media only screen and (max-width:1000px){
+
+	/* 以下、スマホのレスポンシブ時点での設定 */
+
+	/* グローバルメニュー非表示
+	---------------------------------------*/
+	ul.menu_headerflat {
+		display: none;
+	}
+	.globalmenu_view_main_init {
+		display: none;
+	}
+
+	/* 左カラムは消す(メニューはボタンナビ)
+	---------------------------------------*/
+	#_leftcolumn { display:none; }
+
+	/* 右カラムは下に持っていく
+	---------------------------------------*/
+	#_rightcolumn { display:table-row-group; }
+	#_rightcolumn .menu_view_main_init {
+		padding: 4px !important;
+	}
+	#_rightcolumn .menu_view_main_init .module_box {
+		width: 100% !important;
+	}
+	#_centercolumn { display:table-header-group; }
+
+	/* 全体の幅を100%
+	---------------------------------------*/
+	#_container { width: 100%; }
+
+	/* 中央カラムの幅を100%
+	---------------------------------------*/
+	.centercolumn { width: 100%; }
+
+	/* WYSIWYG で表の大きさを指定している場合の対応(スマホの横スクロール、画像の大きさ)
+	---------------------------------------*/
+	.responsive_area table {
+		width: 100% !important;
+		white-space: normal !important;
+	}
+	.responsive_area table td {
+		width: 100% !important;
+		white-space: normal !important;
+		word-wrap: break-word;
+	}
+
+	/* タイトルアクセントの余白が横スクロールの原因になり、余白の調整がうまく効かないので、幅で調整
+	---------------------------------------*/
+	h2.nc_block_title {
+		width: 90%;
+	}
+
+	/* TABLE 内で画像を横に並べていたものが、縦になった際の左の隙間を消す。
+	---------------------------------------*/
+	.responsive_area img {
+		margin-left: 0;
+		margin-right: 0;
+	}
+	.responsive_area table img {
+		margin-left: 0;
+		margin-right: 0;
+	}
+
+	/* マージンがあると幅が膨らむため、タブレット以下では削除
+	---------------------------------------*/
+	.responsive_area div {
+		margin-left: 0 !important;
+		margin-right: 0 !important;
+	}
+	.responsive_area table {
+		margin-left: 0 !important;
+		margin-right: 0 !important;
+	}
+
+	/* iFrame の幅を制御(地図などの対応)
+	---------------------------------------*/
+	.responsive_area iframe {
+		max-width: 100%;
+	}
+}
+

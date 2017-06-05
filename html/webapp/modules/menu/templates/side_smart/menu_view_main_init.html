@@ -1,0 +1,57 @@
+<script class="nc_script" type="text/javascript">
+
+	// jQueryの読み込み確認
+	if(typeof jQuery != "undefined") {
+
+		// 既に読み込まれている場合はそのまま
+		// alert('jQuery is ready.');
+
+		//スマホ＆タブレット用メニュー
+		jQuery(function () {
+			// メニューボタン　表示/非表示
+			jQuery('#smp_tab_menu_btn').click(function() {
+				// メニュー表示/非表示
+				jQuery('#smp_tab_menu').slideToggle('fast');
+			});
+		});
+	}
+	else {
+		// alert('jQuery is not ready.');
+
+		// jQuery を読み込む
+		jqcheckCls.jqload("jquery-1.6.4.min", "window.jQuery",
+			function() {
+				// alert('jQuery is loaded.');
+
+				//スマホ＆タブレット用メニュー
+				jQuery(function () {
+					// メニューボタン　表示/非表示
+					jQuery('#smp_tab_menu_btn').click(function() {
+						// メニュー表示/非表示
+						jQuery('#smp_tab_menu').slideToggle('fast');
+					});
+				});
+			}
+		);
+	}
+
+</script>
+
+<{strip}>
+<{* トップページのリンクは表示しない *}>
+
+<{assign var="menus" value=$action.menus.0.0}>
+
+<div id="smp_tab_menu_home">
+	<div id="smp_tab_menu_link">
+		<a href="<{$smarty.const.BASE_URL|smarty:nodefaults}>">Home</a>
+	</div>
+	<div id="smp_tab_menu_btn"></div>
+</div>
+
+<ul id="smp_tab_menu">
+
+<{include file="menu_view_main_list.html"}>
+</ul>
+<{include file="../menu_script.html"}>
+<{/strip}>

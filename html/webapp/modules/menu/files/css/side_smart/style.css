@@ -1,0 +1,118 @@
+/* スマホ＆タブレット用ナビ非表示
+---------------------------------------*/
+#smp_tab_menu_home {
+	display:none;
+}
+#smp_tab_menu {
+	display:none;
+}
+
+/* tablet
+---------------------------------------*/
+@media only screen and (max-width:1000px){
+
+	/* スマホ＆タブレット用ナビ表示
+	---------------------------------------*/
+	#smp_tab_menu_home {
+		display:block;
+	}
+}
+
+/* サブメニュー(スマホ)
+----------------------------------------------*/
+
+ul#smp_tab_menu {
+	padding-left: 0;
+	margin-top: 0;
+}
+
+#smp_tab_menu li {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	border-bottom: 1px solid #CCC;
+	background: none;
+}
+
+#smp_tab_menu li a {
+	display:block;
+	padding:8px 8px 8px 34px;
+	background:url("<{$smarty.const.CORE_BASE_URL}>/images/menu/side_smart/smp_nav_arw.png") 20px 12px no-repeat;
+	text-decoration:none;
+}
+
+#smp_tab_menu li a:hover{
+	background-color:#f0f0f0;
+	color: #123171;
+	text-decoration:none;
+	background-image:url("<{$smarty.const.CORE_BASE_URL}>/images/menu/side_smart/smp_nav_arw_on.png");
+}
+
+#smp_tab_menu li.current a {
+	background-color:#f0f0f0;
+	color: #123171;
+	background-image:url("<{$smarty.const.CORE_BASE_URL}>/images/menu/side_smart/smp_nav_arw_on.png");
+}
+
+#smp_tab_menu li.category a {
+	display:block;
+	padding:8px 8px 8px 20px;
+	background:url("<{$smarty.const.CORE_BASE_URL}>/images/menu/side_smart/smp_nav_arw.png") 6px 12px no-repeat;
+	text-decoration:none;
+}
+
+#smp_tab_menu li.category a:hover {
+	background-color:#f0f0f0;
+	color: #123171;
+	text-decoration:none;
+	background-image:url("<{$smarty.const.CORE_BASE_URL}>/images/menu/side_smart/smp_nav_arw_on.png");
+}
+
+#smp_tab_menu li.category_current {
+	background-color: #f0f0f0;
+}
+
+#smp_tab_menu li.category_current a {
+	display:block;
+	padding:8px 8px 8px 20px;
+	background: url("<{$smarty.const.CORE_BASE_URL}>/images/menu/side_smart/smp_nav_arw_on.png") 6px 14px no-repeat;
+	text-decoration:none;
+}
+
+#smp_tab_menu_home {
+	background-color: #f6f6f6;
+	height: 44px;
+	border-top: 1px solid #e0e0e0;
+	border-bottom: 1px solid #e0e0e0;
+}
+
+#smp_tab_menu_link {
+	float: left;
+	padding: 14px 0 0 14px;
+}
+
+#smp_tab_menu_link a {
+	text-decoration: none;
+}
+
+#smp_tab_menu_link a:hover {
+	text-decoration: underline;
+}
+
+#smp_tab_menu_btn {
+	float: right;
+	margin: 5px 8px;
+	width: 46px;
+	height: 46px;
+}
+
+#smp_tab_menu_btn {
+	max-width: 44px;
+	background:url("<{$smarty.const.CORE_BASE_URL}>/images/menu/side_smart/smp_btn_default.png") 0px 0px no-repeat;
+}
+
+#smp_tab_menu_btn:focus, #smp_tab_menu_btn:hover {
+	background:url("<{$smarty.const.CORE_BASE_URL}>/images/menu/side_smart/smp_btn_select.png") 0px 0px no-repeat;
+}
+
+
